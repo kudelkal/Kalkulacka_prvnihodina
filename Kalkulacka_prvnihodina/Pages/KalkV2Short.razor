@@ -1,0 +1,51 @@
+﻿
+
+@page "/kalkV2Short"
+
+<h3>KalkV2Short</h3>
+<h2>Základní matematické operace</h2>
+<hr />
+<label>Číslo 1:<input @bind="cislo1" /> </label>
+<br />
+<label>Číslo 2:<input @bind="cislo2" /> </label>
+
+<div class="m-3">
+    <button @onclick="Soucet" class="btn" style="width:130px">Součet (+)</button>
+    <button @onclick="Rozdil" class="btn btn-primary">Rozdíl(-)</button>
+    <button @onclick="Soucin" class="btn btn-warning">Součin(*)</button>
+    <button @onclick="Podil" class="btn btn-dark">Podíl(/)</button>
+</div>
+<div>
+    <label>Výsledek:<input @bind="vysledek" readonly /> </label>
+</div>
+@code {
+    short cislo1;
+    short cislo2;
+    short vysledek;
+
+
+    //komentare se daji delat i takhle
+
+    /// <summary>
+    /// Soucet dvou promenych ((komentare k celym metodam se delaji ///, pak zobrazuje popis kdyz najedu na metodu))
+    /// </summary>
+    private void Soucet()
+    {
+        vysledek = (short)(cislo1 + cislo2);
+    }
+
+    private void Rozdil()
+    {
+        vysledek = (short)(cislo1 - cislo2);
+    }
+
+    private void Soucin()
+    {
+        vysledek = (short)(cislo1 * cislo2);
+    }
+
+    private void Podil()
+    {
+        vysledek = (short)(cislo1 / cislo2);
+    }
+}
