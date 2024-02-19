@@ -18,20 +18,35 @@
 <div>
     <label>Výsledek:<input @bind="vysledek" readonly /> </label>
 </div>
+<hr />
+<label><input type="checkbox" @bind-value = "kontrolaPreteceni"/> Kontrola přetečení </label>
+
 @code {
-    short cislo1;
-    short cislo2;
-    short vysledek;
+    private short cislo1;
+    private short cislo2;
+    private short vysledek;
+    private bool kontrolaPreteceni = false;
 
 
-    //komentare se daji delat i takhle
+    //komentare se daji delat takhle
 
     /// <summary>
     /// Soucet dvou promenych ((komentare k celym metodam se delaji ///, pak zobrazuje popis kdyz najedu na metodu))
     /// </summary>
     private void Soucet()
     {
-        vysledek = (short)(cislo1 + cislo2);
+        if (kontrolaPreteceni)
+        {
+            checked
+            {
+               vysledek = (short)(cislo1 + cislo2);
+            }
+        }
+        else
+        {
+            vysledek = (short)(cislo1 + cislo2);
+        }
+
     }
 
     private void Rozdil()
@@ -43,7 +58,6 @@
     {
         vysledek = (short)(cislo1 * cislo2);
     }
-
     private void Podil()
     {
         vysledek = (short)(cislo1 / cislo2);
